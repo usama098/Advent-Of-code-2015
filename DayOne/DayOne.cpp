@@ -24,8 +24,21 @@ string readFileContent(const string& filePath) {
     }
 }
 
+int calculateFloor(const string& input){
+    int floor = 0;
+    for (char c : input){
+        if (c == '('){
+            floor++;
+        } else if (c == ')'){
+            floor--;
+        }
+    }
+    return floor;
+}
+
 int main(){
     cout << "Current path is: " << current_path() << endl; // Print the current working directory
     string fileContent = readFileContent("../datasets/DayOneInput.txt");
     cout << fileContent << endl;
+    cout << "The floor is: " << calculateFloor(fileContent) << endl;
 }
